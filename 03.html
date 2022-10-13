@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+    <script>
+        /* Faça um algoritmo para ler e armazenar em um Array a temperatura média
+        de todos os dias de uma semana.
+        Calcular e escrever:
+            a) Menor temperatura da semana
+            b) Maior temperatura da semana*/
+            
+            ArraySemana = []
+            var contador = 1
+            while (contador <= 7) {
+                var numeros = Number(prompt(`Insira a temperatura do ${contador}º dia da semana.`))
+                contador++
+                ArraySemana.push(numeros)
+            }
+            const maiorTemp = ArraySemana.reduce(function(prev, current){
+                return prev >current ? prev : current;
+            });
+            alert (`A maior temperatura da semana foi: ${maiorTemp} ºC`)
+            const menorTemp = ArraySemana.reduce(function(prev, current){
+                return prev < current ? prev : current;
+            });
+            alert (`A menor temperatura da semana foi: ${menorTemp} ºC`)
+            
+    </script>
+</body>
+</html>

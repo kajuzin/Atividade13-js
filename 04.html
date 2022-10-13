@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+<body>
+    <script>
+       /* Elaborar um programa que leia nome e nota de ‘n’ alunos até o usuário
+        digitar ‘Fim’ no nome. Após, verifique e exiba a maior nota da turma. Se a
+        maior nota for superior ou igual a 7, exiba os alunos que a obtiveram. Caso
+        contrário, exiba a mensagem “Não há alunos em destaque na turma”. */
+        NomeAluno = []
+        NotaAluno = []
+        resposta = Number(prompt("Deseja começar o programa? \n Digite 1 para SIM e 0 para NÃO"))
+        while (resposta == 1) {
+            var nomeAl = String(prompt("Qual o nome do aluno? \n Caso queira encerrar por aqui digite (Fim)"))
+            if (nomeAl !== ("Fim")){
+                var notaAl = Number(prompt("Qual a nota referente a esse aluno?"))
+                NomeAluno.push(nomeAl)
+                NotaAluno.push(notaAl)
+            }
+            else if (nomeAl === "Fim"){
+                const maiorNota = NotaAluno.reduce(function(prev, current){
+                    return prev >current ? prev : current;
+                });
+                alert (`A maior nota da turma foi: ${maiorNota}`)
+                alert(`Alunos que tiraram notas maiores que 7 serão mostrados a seguir: \n`)
+                for(let i = 0; i <NotaAluno.length; i++){
+                    if (NotaAluno[i]>=7){
+                        alert(`Aluno: ${NomeAluno[i]}, Nota: ${NotaAluno[i]}`)
+                    } else {
+                        alert(`Não há alunos em destaque na turma!`)
+                    }
+                }
+                break
+            }
+            
+        }
+        while(resposta == 0){
+            break
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+<body>
+    <script>
+        /* Elaborar um programa que leia nome e idade de ‘n’ clientes de um banco
+        (até ser digitado ‘Fim’ no nome). Após, classifique e exiba os clientes em 2
+        grupos: preferencial (a partir de 60 anos) e Fila normal (até 59 anos). Informe
+        a ordem de atendimento em cada grupo de acordo com a chegada dos
+        clientes. */
+        NomeCliente = []
+        IdadeCliente = []
+
+        listaPreferencial = []
+        listaNormal = []
+
+        listaFinal = []
+        resposta = Number(prompt("Deseja começar o programa? \n Digite 1 para SIM e 0 para NÃO"))
+        while (resposta == 1) {
+            var NomeCl = String(prompt("Qual o nome do Cliente? \n Caso queira encerrar por aqui digite (Fim)"))
+            if (NomeCl !== ("Fim")){
+                var IdadeCl = Number(prompt("Qual a idade referente a esse Cliente?"))
+                NomeCliente.push(NomeCl)
+                IdadeCliente.push(IdadeCl) 
+            } else if (NomeCl === "Fim"){
+                for(let i = 0; i <IdadeCliente.length; i++){
+                    if (IdadeCliente[i]>=60){
+                        listaPreferencial.push(NomeCliente[i])
+                    } else {
+                        listaNormal.push(NomeCliente[i])
+                    }
+                }
+                listaFinal.push(listaPreferencial)
+                listaFinal.push(listaNormal)
+                alert(`A lista de atendimento é: ${listaFinal}`)
+                break
+            }
+            
+        }
+        while(resposta == 0){
+            break
+        }
+    </script>
+</body>
+</html>

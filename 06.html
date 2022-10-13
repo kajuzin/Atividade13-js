@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+    <script>
+            /* Elaborar um programa que simule saques em um caixa eletrônico de um
+        banco. Ler o valor solicitado por clientes até ser digitado 0. Sabendo que o
+        caixa dispõe apenas de notas de 10, exiba após cada leitura se o saque é
+        válido ou inválido. Ao final, listar os saques válidos e a soma dos saques.
+        Exiba também o número de saques inválidos.*/
+        var valorDisponível = 1000
+        var contSaques = 0
+        var quantSaques = 0
+        var nomeCliente = String(prompt(`Olá, seja bem vindo ao nosso Banco Unifesspa! Qual seria o seu nome?`))
+        var encerrarProg = 1
+        while(encerrarProg != 0){
+            var valorSacar = Number(prompt(`Olá ${nomeCliente}, neste caixa temos disponivel o valor de R$${valorDisponível} para saque!\n \n
+            Qual seria o valor que você deseja sacar? \n
+            (No momento, só temos disponíveis notas de R$10,00. Se deseja cancelar esse procedimento e encerrar o programa digite o número 0.)`))
+            var div10 = valorSacar/10
+            encerrarProg = valorSacar
+            if (encerrarProg != 0){
+                if (Number.isInteger(div10)){
+                    contSaques++
+                    quantSaques = quantSaques + valorSacar
+                    valorDisponível = valorDisponível - valorSacar
+                    alert(`Valor Sacado! \n
+                    O valor retirado foi de R$ ${valorSacar}.`)
+                    alert(`Foram realizados até o momento ${contSaques} saques neste caixa!`)
+                } else {
+                    alert(`O valor é inválido! No momento, só temos disponíveis notas de R$10,00.`)
+                }
+            }
+        }
+        while(encerrarProg == 0) {
+            alert(`Obrigado por usar o nosso Banco Unifesspa! Agradecemos sua visita e volte sempre!`)
+            break
+        }
+
+
+
+    </script>
+</body>
+</html>
